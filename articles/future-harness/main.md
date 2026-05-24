@@ -18,7 +18,7 @@ AI系统要长期发展，必须有长期反馈信号增长机制，要么厂商
 
 现有功能例如：
 
-- Copilot ask question tool 允许模型以 tool use 形式频繁向用户提问
+- Ask question tool 允许模型以 tool use 形式频繁向用户提问
 - ChatGPT 回答问题后会提出几个下一步选择
 - Claude Code 允许多个 tool use 异步进行
 
