@@ -22,7 +22,7 @@ AI系统要长期发展，必须有长期反馈信号增长机制，要么厂商
 - ChatGPT 回答问题后会提出几个下一步选择
 - Claude Code 允许多个 tool use 异步进行
 
-功能设想：
+设想示例：
 
 - Agent 工作时可以高频异步调用 ask question tool，将 side question 体验从现有的“人问Agent”扩展到“Agent问人”。
 
@@ -31,7 +31,7 @@ AI系统要长期发展，必须有长期反馈信号增长机制，要么厂商
 用户使用 Agent 的轨迹中，只有“读到了什么”，缺少“没读到什么”。
 对用户环境中的可获取但没获取到的信息，Harness 能提供什么帮助？
 
-设想：允许 session 隐式 fork，尝试不一样的路径
+设想示例：允许 session 隐式 fork，尝试不一样的路径
 
 - 环境也需要 fork，而云端 session 才能实现
 
@@ -52,28 +52,14 @@ Agent 良好工作需要提示词、程序与 Harness（软硬中介）的协作
 - 虚拟机限制 Agent 行为影响机器上其他用户
 - Hook 在特定时机触发固定行为
 
-### 扩展机制
-
-扩展模型自身结构上不足的能力
-
-- Tool：tool description 直接注入，tool use 由模型决定
-- Skill：skill description 直接注入，read skill 由模型决定
-- Memory：memory index 直接注入，read memory 由模型决定
-
-Tool 是最基础的机制。
-Skill 为用户提供简单好上手的知识索引。
-Memory 则主要处理跨 session 信息流通。
-
-问题：足够了吗？还有什么常见问题类型有扩展新机制的空间？
-
-#### 读与写
+### 扩展机制：读与写
 
 能读的地方尽量能 **主动** 修改：
 
 - 改 AGENTS.md
 - 改 SKILL.md 提示词与 script/ 程序
 - 记录新的 memory 与整理旧的 memory
-- few shot 固化 bash approve pattern（这个似乎暂时不会被记入 memory）
+- 改 harness 代码或者插件代码
 
 ### 消除摩擦
 
@@ -84,7 +70,7 @@ Memory 则主要处理跨 session 信息流通。
 - 用户帮 Agent 在项目上冷启动：为新近使用 Agent 的项目建立合适的配置
 - Agent 产业早期阶段：将外部世界非 Agent-native 的信息接入 LLM
 
-针对现有非 Agent-native 的环境：
+现有连接方案：
 
 - MCP：针对特定接口开发，比较繁重，更适合用于整合一套解决方案的内部组件
 - CLI shell：通用但要求用户专业背景
@@ -102,10 +88,11 @@ Memory 则主要处理跨 session 信息流通。
 - Pi：专注于核心框架，但保留丰富的扩展空间。更适合：社区开发 + 异质场景
 
 “丰富功能” 的边界在哪里？
-Harness 可不可以自己造一套 Excel？
-思考：Harness 自身面向比较同质的人，扩展功能面向比较异质的事。
+Harness 可不可以自己包含一套 Excel？
 
-## 尚无答案的思考
+思考：Harness 自身面向比较同质的**人**，扩展功能面向比较异质的**事**。
 
-1. 弯道超车：怎样超越 Claude Code 与 Codex？
-2. 如何收集与学习更长程反馈？尝试定义“判断力”“审美”：将 life-long reward 投射到即时 reward 的能力
+## 长期演化
+
+Agent 如何收集与学习更长程反馈？
+尝试定义“判断力”“审美”“品味”：用眼前特征预测 life-long reward 的能力。
